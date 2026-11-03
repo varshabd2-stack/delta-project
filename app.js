@@ -25,9 +25,6 @@ const userRouter = require("./routes/user.js");
 
 
 
-
-
-
 app.set("view engine", "ejs");
 app.set('views', path.join(__dirname, "views"));
 app.use(express.urlencoded({extended:true})); //paras
@@ -97,9 +94,6 @@ passport.deserializeUser(User.deserializeUser());// to not to store the informat
 
 
 
-// app.use("/",(req, res) =>{
-//     res.send("I'm the root element")
-// });
  
 
 app.use((req, res,next) =>{
@@ -109,6 +103,14 @@ app.use((req, res,next) =>{
 
     next();
 });
+
+
+
+
+app.use("/",(req, res) =>{
+    res.send("I'm the root element")
+});
+
 
 // app.get("/demouser", async(req, res) =>{
 // let fakeUser = new User({
